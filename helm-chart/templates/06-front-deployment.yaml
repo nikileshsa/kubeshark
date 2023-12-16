@@ -26,6 +26,10 @@ spec:
         - env:
             - name: REACT_APP_DEFAULT_FILTER
               value: ' '
+            - name: REACT_APP_HUB_HOST
+              value: ' '  
+            - name: REACT_APP_HUB_PORT
+              value: ':8899/api'  
             - name: REACT_APP_AUTH_ENABLED
               value: '{{ .Values.tap.auth.enabled }}'
           image: '{{ .Values.tap.docker.registry }}/front:{{ not (eq .Values.tap.docker.tag "") | ternary .Values.tap.docker.tag (printf "v%s" .Chart.Version) }}'

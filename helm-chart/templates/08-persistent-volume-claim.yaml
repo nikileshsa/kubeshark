@@ -10,7 +10,7 @@ spec:
     storage: {{ .Values.tap.storageLimit }}
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: {{ .Values.tap.storageClass }}
   {{- if .Values.tap.efsFileSytemIdAndPath }}
@@ -34,7 +34,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce 
   resources:
     requests:
       storage: {{ .Values.tap.storageLimit }}
